@@ -1,4 +1,18 @@
-theme = 'anatole'
 baseURL = 'https://SewiR3.github.io/engineering-log/'
-locale = 'en-us'
 title = 'Engineering Log'
+theme = 'anatole'
+locale = "en-us'
+
+[privacy]
+  [privacy.disqus]
+    disable = true
+  [privacy.googleAnalytics]
+    disable = true
+  [privacy.instagram]
+    disable = true
+  [privacy.twitter]
+    disable = true
+  [privacy.vimeo]
+    disable = true
+  [privacy.youtube]
+    disable = true
