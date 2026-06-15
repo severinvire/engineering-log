@@ -5,6 +5,21 @@
     <link>http://localhost:1313/engineering-log/</link>
     <description>Recent content on Engineering Log</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://localhost:1313/engineering-log/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Mon, 15 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/engineering-log/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why the LEDs Would Not Blink When Connected in Parallel to a 556 Circuit</title>
+      <link>http://localhost:1313/engineering-log/posts/why-the-leds-will-not-blink-when-connected-parallel-in-a-556-circuit/</link>
+      <pubDate>Mon, 15 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/engineering-log/posts/why-the-leds-will-not-blink-when-connected-parallel-in-a-556-circuit/</guid>
+      
+        <description>&lt;h2 id=&#34;context&#34;&gt;Context&lt;/h2&gt;
+&lt;p&gt;Traffic light subsystem for ENG1013. A 556 dual timer generates a flashing signal for warning lights (WL2). The output (pin 5 or 9) was supposed to drive two red LEDs that flash alternately.&lt;/p&gt;
+&lt;h2 id=&#34;symptom&#34;&gt;Symptom&lt;/h2&gt;
+&lt;p&gt;When I connected the two LEDs in parallel directly to the output pin, neither blinked. The 556&amp;rsquo;s output measured a flat ~0.6 V. Removing one LED made the other blink faintly. Something was dragging the output low.&lt;/p&gt;</description>
+      
+    </item>
+    
   </channel>
 </rss>

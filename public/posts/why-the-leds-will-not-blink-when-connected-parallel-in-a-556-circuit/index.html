@@ -1,0 +1,365 @@
+<!doctype html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+  
+    class="html theme--light"
+  
+><head><script src="/engineering-log/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=engineering-log/livereload" data-no-instant defer></script>
+  <meta charset="utf-8" /><title>
+    
+        |
+        Why the LEDs Would Not Blink When Connected in Parallel to a 556 Circuit
+      
+
+    
+
+  </title>
+
+  <meta name="generator" content="Hugo 0.163.1"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="author" content="" />
+  <meta
+    name="description"
+    content=""
+  />
+  
+  
+        <link rel="stylesheet" href="/engineering-log/css/anatole.css" />
+      
+  <link
+    rel="stylesheet"
+    href="/engineering-log/css/markupHighlight.min.f8ba48d3fd92c731701d9634494275b2f2bc2ad0bea19b438feb41b25052f83b.css"
+    integrity="sha256-&#43;LpI0/2SxzFwHZY0SUJ1svK8KtC&#43;oZtDj&#43;tBslBS&#43;Ds="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/engineering-log/fontawesome/css/fontawesome.min.10cb17328b3207590ce3d89fb482e7cd6937d8138cef2059c69cabd65ab7d6c6.css"
+    integrity="sha256-EMsXMosyB1kM49iftILnzWk32BOM7yBZxpyr1lq31sY="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/engineering-log/fontawesome/css/solid.min.7aa4d559d5fadcfed666b5679be54d0dbbcf6a0542742319765b253d2797cc44.css"
+    integrity="sha256-eqTVWdX63P7WZrVnm&#43;VNDbvPagVCdCMZdlslPSeXzEQ="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/engineering-log/fontawesome/css/regular.min.a699c3ab02229020e2d51dfe6c9a4cc556fd7781edbc166e2af9d0db9d5c66ce.css"
+    integrity="sha256-ppnDqwIikCDi1R3&#43;bJpMxVb9d4HtvBZuKvnQ251cZs4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/engineering-log/fontawesome/css/brands.min.1d88b60c86c4bb253fa4d4c085d27f7ee1f6eca544f7b50b227a2e63fbcfbaaa.css"
+    integrity="sha256-HYi2DIbEuyU/pNTAhdJ/fuH27KVE97ULInouY/vPuqo="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link rel="shortcut icon" href="/engineering-log/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/engineering-log/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/engineering-log/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/engineering-log/favicon-16x16.png" />
+
+  <link rel="canonical" href="http://localhost:1313/engineering-log/posts/why-the-leds-will-not-blink-when-connected-parallel-in-a-556-circuit/" />
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/engineering-log/js/anatole-header.min.f9132794301a01ff16550ed66763482bd848f62243d278f5e550229a158bfd32.js"
+    integrity="sha256-&#43;RMnlDAaAf8WVQ7WZ2NIK9hI9iJD0nj15VAimhWL/TI="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/engineering-log/js/anatole-theme-switcher.min.8724ddf9268dee451060f191961647573c7f592fbccc6d858746236b3f915813.js"
+      integrity="sha256-hyTd&#43;SaN7kUQYPGRlhZHVzx/WS&#43;8zG2Fh0Yjaz&#43;RWBM="
+      crossorigin="anonymous"
+    ></script>
+  
+
+  
+
+  
+
+  
+
+
+  
+  
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Why the LEDs Would Not Blink When Connected in Parallel to a 556 Circuit">
+	<meta name="twitter:description" content="Context Traffic light subsystem for ENG1013. A 556 dual timer generates a flashing signal for warning lights (WL2). The output (pin 5 or 9) was supposed to drive two red LEDs that flash alternately.
+Symptom When I connected the two LEDs in parallel directly to the output pin, neither blinked. The 556’s output measured a flat ~0.6 V. Removing one LED made the other blink faintly. Something was dragging the output low.">
+
+
+
+  
+  <meta property="og:url" content="http://localhost:1313/engineering-log/posts/why-the-leds-will-not-blink-when-connected-parallel-in-a-556-circuit/">
+	<meta property="og:site_name" content="Engineering Log">
+	<meta property="og:title" content="Why the LEDs Would Not Blink When Connected in Parallel to a 556 Circuit">
+	<meta property="og:description" content="Context Traffic light subsystem for ENG1013. A 556 dual timer generates a flashing signal for warning lights (WL2). The output (pin 5 or 9) was supposed to drive two red LEDs that flash alternately.
+Symptom When I connected the two LEDs in parallel directly to the output pin, neither blinked. The 556’s output measured a flat ~0.6 V. Removing one LED made the other blink faintly. Something was dragging the output low.">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2026-06-15T00:00:00+00:00">
+		<meta property="article:modified_time" content="2026-06-15T00:00:00+00:00">
+
+
+
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "posts",
+        "name": "Why the LEDs Would Not Blink When Connected in Parallel to a 556 Circuit",
+        "headline": "Why the LEDs Would Not Blink When Connected in Parallel to a 556 Circuit",
+        "alternativeHeadline": "",
+        "description": "
+      
+        \u003ch2 id=\u0022context\u0022\u003eContext\u003c\/h2\u003e\n\u003cp\u003eTraffic light subsystem for ENG1013. A 556 dual timer generates a flashing signal for warning lights (WL2). The output (pin 5 or 9) was supposed to drive two red LEDs that flash alternately.\u003c\/p\u003e\n\u003ch2 id=\u0022symptom\u0022\u003eSymptom\u003c\/h2\u003e\n\u003cp\u003eWhen I connected the two LEDs in parallel directly to the output pin, neither blinked. The 556\u0026rsquo;s output measured a flat ~0.6 V. Removing one LED made the other blink faintly. Something was dragging the output low.\u003c\/p\u003e
+
+
+      
+
+
+    ",
+        "license": "",
+        
+        "inLanguage": "en",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:1313\/engineering-log\/posts\/why-the-leds-will-not-blink-when-connected-parallel-in-a-556-circuit\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": ""
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": ""
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": ""
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": ""
+        },
+        "dateCreated": "2026-06-15T00:00:00.00Z",
+        "datePublished": "2026-06-15T00:00:00.00Z",
+        "dateModified": "2026-06-15T00:00:00.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "",
+            "url": "http://localhost:1313/engineering-log/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "http:\/\/localhost:1313\/engineering-log\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+      ]
+
+    ,
+        "url" : "http:\/\/localhost:1313\/engineering-log\/posts\/why-the-leds-will-not-blink-when-connected-parallel-in-a-556-circuit\/",
+        "wordCount" : "376",
+        "genre" : [ ],
+        "keywords" : [ ]
+    }
+  </script>
+
+
+
+
+  
+  
+  
+</head>
+<body class="body">
+    <div class="wrapper">
+      <aside
+        
+          class="wrapper__sidebar"
+        
+      ><div class="sidebar">
+  <div
+    class="sidebar__content 
+      animated fadeInDown
+    "
+  >
+    <div class="sidebar__introduction">
+      <img
+        class="sidebar__introduction-profileimage"
+        src="/engineering-log/"
+        alt="profile picture"
+      />
+      
+        <div class="sidebar__introduction-title">
+          <a href="/engineering-log"></a>
+        </div>
+      
+      <div class="sidebar__introduction-description">
+        <p></p>
+      </div>
+    </div>
+    <ul class="sidebar__list">
+      
+    </ul>
+  </div><footer class="footer footer__sidebar">
+  <ul
+    class="footer__list 
+      animated fadeInDown
+    "
+  >
+    <li class="footer__item">
+      &copy;
+      
+        
+        2026
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/engineering-log/js/medium-zoom.min.9531b4a2217a70c5a1fce89c1f81c9ebbdd586708fcd4130b417320c7230c8d6.js"
+    integrity="sha256-lTG0oiF6cMWh/OicH4HJ673VhnCPzUEwtBcyDHIwyNY="
+    crossorigin="anonymous"
+  ></script></div>
+</aside>
+      <main
+        
+          class="wrapper__main"
+        
+      >
+        <header class="header"><div
+  class="
+    animated fadeInDown
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+  </a>
+  <nav class="nav">
+    <ul class="nav__list" id="navMenu">
+      
+      
+    </ul>
+    <ul class="nav__list nav__list--end">
+      
+      
+        <li class="nav__list-item">
+          <div class="themeswitch">
+            <a title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </div>
+        </li>
+      
+    </ul>
+  </nav>
+</div>
+</header>
+  <div
+    class="post 
+      animated fadeInDown
+    "
+  >
+    
+    <div class="post__content">
+      
+        <h1>Why the LEDs Would Not Blink When Connected in Parallel to a 556 Circuit</h1>
+      
+      <h2 id="context">Context</h2>
+<p>Traffic light subsystem for ENG1013. A 556 dual timer generates a flashing signal for warning lights (WL2). The output (pin 5 or 9) was supposed to drive two red LEDs that flash alternately.</p>
+<h2 id="symptom">Symptom</h2>
+<p>When I connected the two LEDs in parallel directly to the output pin, neither blinked. The 556&rsquo;s output measured a flat ~0.6 V. Removing one LED made the other blink faintly. Something was dragging the output low.</p>
+<h2 id="investigation">Investigation</h2>
+<ul>
+<li>Checked the 556 timing: RC values were correct, astable mode confirmed.</li>
+<li>Scoped the output pin without load: clean square wave, 2.5 Hz.</li>
+<li>Suspected the output couldn&rsquo;t supply enough current for two LEDs in parallel.</li>
+</ul>
+<p>Measured each LED&rsquo;s forward voltage: one was 1.82 V, the other 1.85 V. Connected them in parallel with a single 220 Ω resistor to Vcc (5 V). The LED with the lower Vf hogged almost all the current – the other stayed dark.</p>
+<h2 id="root-cause">Root Cause</h2>
+<p><strong>Parallel LEDs with a shared current-limiting resistor are unstable.</strong> The 556&rsquo;s output stage (a bipolar totem pole) has limited source/sink capability (~100–200 mA). When forced into a current-hogging situation, the output voltage collapses as the transistor saturates and cannot drive the non-matched LED.</p>
+<p>Additionally, the 556&rsquo;s output pin sources current when high, but I had wired the LEDs as active-low (cathode to output, anode to Vcc through resistor). This confused the expected logic – the output sinking current when low should turn LEDs on, but the shared resistor still caused imbalance.</p>
+<h2 id="fix">Fix</h2>
+<ol>
+<li><strong>Independent resistors:</strong> Each LED got its own 220 Ω resistor, either from Vcc to anode (active-low) or from cathode to GND (active-high). Both worked.</li>
+<li><strong>Confirmed wiring:</strong> In active-low configuration, when the output went low, both LEDs turned on equally. Blinking returned immediately.</li>
+</ol>
+<h2 id="lesson">Lesson</h2>
+<ul>
+<li>Never parallel LEDs without individual current-limiting resistors. The one with slightly lower Vf steals current, leading to one bright LED and one off, or total output collapse if the driver can&rsquo;t maintain voltage.</li>
+<li>Always check the datasheet for output drive capability: the 556 can sink/source decent current, but a short or near-short (unequal parallel LEDs) can overload it.</li>
+<li>A simple scope check of the output pin under load pinpointed the collapse.</li>
+</ul>
+<h2 id="schematic-snippet">Schematic Snippet</h2>
+<p>(A hand-drawn sketch of the correct wiring with separate resistors will be scanned and added later.)</p>
+</div>
+    <div class="post__footer">
+      
+
+      
+    </div>
+
+    
+  </div>
+
+      </main>
+    </div><footer class="footer footer__base">
+  <ul
+    class="footer__list 
+      animated fadeInDown
+    "
+  >
+    <li class="footer__item">
+      &copy;
+      
+        
+        2026
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/engineering-log/js/medium-zoom.min.9531b4a2217a70c5a1fce89c1f81c9ebbdd586708fcd4130b417320c7230c8d6.js"
+    integrity="sha256-lTG0oiF6cMWh/OicH4HJ673VhnCPzUEwtBcyDHIwyNY="
+    crossorigin="anonymous"
+  ></script></body>
+</html>

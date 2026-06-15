@@ -1,6 +1,6 @@
 ---
 title: "Why the LEDs Would Not Blink When Connected in Parallel to a 556 Circuit"
-date: 2026-06-15
+date: 2026-06-08
 draft: false
 ---
 
