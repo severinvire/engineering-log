@@ -16,7 +16,7 @@ Traffic light subsystem 4 circuit in unit ENG1013 included a warning light secti
   - The 556 timer section was reviewed and confirmed that it was correctly connected to the positive and negative rails.
   - The WL2 section was analysed, and it was identified that both parallel branches had an identical configuration. This was therefore the root cause.
 
-![*The configuration of the 556 timer ($U_3$) with resistors $R_3$, $R_4$, $R_5$ and capacitor $C_1$](556_timer.png)
+![*The configuration of the 556 timer ($U_3$) with resistors $R_3$, $R_4$, $R_5$ and capacitor $C_1$](/images/556_timer.png)
 
 The configuration of the 556 timer ($U_3$) with resistors $R_3$, $R_4$, $R_5$ and capacitor $C_1$.
 ## Root Cause
@@ -30,7 +30,7 @@ During charging of the capacitor (C1), the lower comparator (inside Timer B of 5
 
 Since both branches shared the same nodes at both ends (between Output pin and GND), all the LEDs illuminated simultaneously.
 
-![Internal block diagram of a 555 timer (Timer A/B of the 556). Reproduced from Horowitz & Hill, *The Art of Electronics*, 3rd ed., 2015, p. 428.](555_timer_The_Art_of_Electronics.png)
+![Internal block diagram of a 555 timer (Timer A/B of the 556). Reproduced from Horowitz & Hill, *The Art of Electronics*, 3rd ed., 2015, p. 428.](/images/555_timer_The_Art_of_Electronics.png)
 
 Internal block diagram of a 555 timer (Timer A/B of the 556). Reproduced from Horowitz & Hill, *The Art of Electronics*, 3rd ed., 2015, p. 428.
 
@@ -49,7 +49,7 @@ However, since the internal transistor inside the Output Driver still needed a s
 
 This solved the light dimming issue by using the transistor's threshold voltage (~2.0 V) to block the current path; therefore, when the node voltages in both sides were identical (5 V), the voltage difference equaled 0 V, current was 0 A. As a result, the D4 and D6 turned off.
 
-![Final configuration of the WL2 subcircuit with the NMOS transistor (BS170).](WL.png)
+![Final configuration of the WL2 subcircuit with the NMOS transistor (BS170).](/images/WL.png)
 Final configuration of the WL2 subcircuit with the NMOS transistor (BS170).
 ## Lesson
 
