@@ -65,6 +65,16 @@
     }
 
 </script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+        ]
+    });"></script>
+
 </head>
 <body id="top">
     <header class="header">
@@ -123,7 +133,7 @@
 <li>The 556 timer section was reviewed and confirmed that it was correctly connected to the positive and negative rails.</li>
 <li>The WL2 section was analysed, and it was identified that both parallel branches had an identical configuration. This was therefore the root cause.</li>
 </ul>
-<p><img alt="*The configuration of the 556 timer ($U_3$) with resistors $R_3$, $R_4$, $R_5$ and capacitor $C_1$" loading="lazy" src="/images/556_timer.png"></p>
+<p><img alt="*The configuration of the 556 timer ($U_3$) with resistors $R_3$, $R_4$, $R_5$ and capacitor $C_1$" loading="lazy" src="/engineering-log/posts/why-parallel-leds-would-not-blink-in-a-556-circuit/556_timer.png"></p>
 <p>The configuration of the 556 timer ($U_3$) with resistors $R_3$, $R_4$, $R_5$ and capacitor $C_1$.</p>
 <h2 id="root-cause">Root Cause<a hidden class="anchor" aria-hidden="true" href="#root-cause">#</a></h2>
 <p>Each branch of WL2 consisted of two identically configured &ldquo;LED + resistor&rdquo; strings connected in parallel. Each red LED was labelled with D- and each resistor (330 Ω) was labelled with R-.</p>
@@ -133,12 +143,12 @@
 </ul>
 <p>During charging of the capacitor (C1), the lower comparator (inside Timer B of 556 timer) output HIGH to input S of flip-flop, thus state of Q = HIGH, signaling to the Output Driver behind the Output pin to open the path for the current.</p>
 <p>Since both branches shared the same nodes at both ends (between Output pin and GND), all the LEDs illuminated simultaneously.</p>
-<p><img alt="Internal block diagram of a 555 timer (Timer A/B of the 556). Reproduced from Horowitz &amp; Hill, <em>The Art of Electronics</em>, 3rd ed., 2015, p. 428." loading="lazy" src="/images/555_timer_The_Art_of_Electronics.png"></p>
+<p><img alt="Image is not yet published - Internal block diagram of a 555 timer (Timer A/B of the 556). Reproduced from Horowitz &amp; Hill, <em>The Art of Electronics</em>, 3rd ed., 2015, p. 428." loading="lazy"></p>
 <p>Internal block diagram of a 555 timer (Timer A/B of the 556). Reproduced from Horowitz &amp; Hill, <em>The Art of Electronics</em>, 3rd ed., 2015, p. 428.</p>
 <h2 id="fix-1">Fix #1<a hidden class="anchor" aria-hidden="true" href="#fix-1">#</a></h2>
 <ol>
 <li><strong>Swapped the positions of each of the LEDs and their adjacent resistors in branch 2.</strong></li>
-<li>**Disconnected branch 2 to GND and reconnected to positive rail (5V).</li>
+<li><strong>Disconnected branch 2 to GND and reconnected to positive rail (5V).</strong></li>
 </ol>
 <p>As the voltage in C1 crossed 2/3 of 5 V, discharging started, Q went LOW, signaling the Output Driver to block the path between 5V and Output, and open the path between GND and Output. Current then flowed from the 5 V rail into Branch 2, turning on its LEDs, then continued into the Output pin to ground. Branch 1 was turned off since both sides equaled 0V; thus, current = 0 A.</p>
 <p>However, since the internal transistor inside the Output Driver still needed a small voltage to turn on and pulled the Output pin low, there was a voltage residue remained relative to ground, leading to a dim light in D4 and D6.</p>
@@ -147,7 +157,7 @@
 <li><strong>Connected an NMOS transistor (BS170) to branch 1</strong>.</li>
 </ol>
 <p>This solved the light dimming issue by using the transistor&rsquo;s threshold voltage (~2.0 V) to block the current path; therefore, when the node voltages in both sides were identical (5 V), the voltage difference equaled 0 V, current was 0 A. As a result, the D4 and D6 turned off.</p>
-<p><img alt="Final configuration of the WL2 subcircuit with the NMOS transistor (BS170)." loading="lazy" src="/images/WL.png">
+<p><img alt="Final configuration of the WL2 subcircuit with the NMOS transistor (BS170)." loading="lazy" src="/engineering-log/posts/why-parallel-leds-would-not-blink-in-a-556-circuit/WL.png">
 Final configuration of the WL2 subcircuit with the NMOS transistor (BS170).</p>
 <h2 id="lesson">Lesson<a hidden class="anchor" aria-hidden="true" href="#lesson">#</a></h2>
 <ul>

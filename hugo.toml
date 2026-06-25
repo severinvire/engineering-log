@@ -1,6 +1,7 @@
 baseURL = "https://severinvire.github.io/engineering-log/"
 title = "Engineering Log"
 theme = "PaperMod"
+math = true
 
 [params]
   disableThemeToggle = false
@@ -9,6 +10,8 @@ theme = "PaperMod"
   ShowWordCount = false
   comments = false
   customcss = ["css/custom.css"]
+  [params.math]
+    enable = true
 
 [privacy]
   disallow = ["twitter", "youtube", "vimeo", "instagram", "disqus", "googleanalytics"]
