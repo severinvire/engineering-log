@@ -4,6 +4,7 @@ theme = "PaperMod"
 math = true
 
 [params]
+  defaultTheme = "light"
   disableThemeToggle = false
   hideFooter = false
   ShowReadingTime = false
