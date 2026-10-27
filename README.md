@@ -1,47 +1,24 @@
-## About This Repository
+### About This Repository
+This repository serves as the source code for my blog. It is a personal project, not an open-source project, and I’m not accepting contributions. Please use it for reference and inspiration only; no reuse, modification, or redistribution without permission.
 
-This repository serves as the source code for my blog. It is a space for me to share technical insights, learning journey, and reflect on engineering challenges. Topics include:
-
+It is a space for me to share technical insights, learning journey, and reflect on engineering challenges. Topics include:
 - Electrical engineering projects
 - Programming and software development
 - Circuit design and troubleshooting
 - Academic reflections
 - Engineering tools and techniques
 
-## AI Acknowledgment
+### Technologies
+Jekyll, HTML/CSS/JavaScript, KaTeX, Prism.js, Liquid.
 
-This repository was developed with the assistance of Gemini for:
-- Structuring and organising the codebase
-- Grammar and clarity improvements in documentation
+### AI Use
+I used Gemini to help scaffold/organize the codebase and improve grammar/clarity in documentation. I reviewed and edited all output and am responsible for the final code and content. Technical content, code, circuit designs, and project documentation are my own unless otherwise noted.
 
-All technical content, including code, circuit designs, and project documentation, is my own original work.
+### Security
+HTTPS is enforced; no secrets are stored in the repo; Dependabot is enabled; this is a static site, which reduces common injection/XSS risks. To report a security issue, please email me rather than opening a public issue.
 
-## Code Safety
+### License
+All rights reserved. No license is granted for reuse.
 
-The following measures are in place to ensure the security and integrity of this repository:
-
-- HTTPS is enforced on the site
-- No sensitive information (API keys, credentials) is stored in this repository
-- Dependabot is enabled to alert me to security vulnerabilities in dependencies
-- This is a static site with no user-generated content, eliminating XSS and injection risks.
-
-If you discover a security vulnerability, please contact me directly through my email rather than opening a public issue.
-
-## License and Usage
-
-All Rights Reserved.
-
-This repository and its contents (including all code, text, images, circuit diagrams, and project documentation) are the exclusive intellectual property of Severin Vire.
-
-You are permitted to:
-- View the repository for reference and inspiration.
-
-You are strictly prohibited from:
-- Copying, reproducing, or distributing any part of this repository.
-- Using any code, text, or designs in your own projects or portfolios.
-- Creating derivative works based on this repository.
-- Cloning or forking this repository for public or private use.
-
-## Contributing
-
-This is a personal blog and is not open to contributions. Feedback and suggestions are welcome via email.
+### Contributions
+Not open to contributions. Feedback is welcome via email.
